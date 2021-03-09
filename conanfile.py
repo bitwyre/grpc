@@ -19,7 +19,7 @@ class GrpcConan(ConanFile):
         "c-ares/1.16.0@bitwyre/stable",
         "openssl/1.1.1j@bitwyre/stable",
         "protobuf/3.11.4@bitwyre/stable",
-        "ZLib/1.2.11@bitwyre/stable"]
+        "zlib/1.2.11@bitwyre/stable"]
     generators = "cmake"
     exports_sources = "*"
     no_copy_source = True
@@ -47,7 +47,7 @@ class GrpcConan(ConanFile):
         cmake.definitions['PROTOBUF_ROOT_DIR'] = self.deps_cpp_info["protobuf"].rootpath
 
         cmake.definitions['gRPC_ZLIB_PROVIDER'] = "package"
-        cmake.definitions['ZLIB_ROOT_DIR'] = self.deps_cpp_info["ZLib"].rootpath
+        cmake.definitions['ZLIB_ROOT_DIR'] = self.deps_cpp_info["zlib"].rootpath
 
         cmake.configure()
         return cmake
